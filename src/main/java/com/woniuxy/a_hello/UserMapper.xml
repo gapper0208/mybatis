@@ -10,7 +10,7 @@
 		insert into user values(null,#{name}, #{birthday}, #{money})
 	</insert>
 	<update id="update" parameterType="com.woniuxy.a_hello.User">
-		update user set name=#{name},birthday=#{birthday},money=#{money}
+		update user set name=#{name},birthday=#{birthday},money=#{money} where id = #{id}
 	</update>
 	<delete id="delete" parameterType="int">
 		delete from user where id = #{id}

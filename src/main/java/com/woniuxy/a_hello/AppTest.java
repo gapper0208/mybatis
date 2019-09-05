@@ -23,7 +23,7 @@ public class AppTest {
 		// ======================================================================
 		
 		User user = new User();
-		user.setName("ºúÀ±ÌÀ");
+		user.setName("É½¶«ÔÓÁ¸¼å±ı");
 		user.setBirthday(new Date());
 		user.setMoney(999d);
 		

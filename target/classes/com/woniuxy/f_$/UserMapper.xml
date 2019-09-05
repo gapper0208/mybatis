@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.woniuxy.f_$.UserMapper">
+
+	<!-- 
+		#{} 和 ${} 的区别
+		1. #{} 会在值的前后加引号; ${}不会值的前后加引号
+		2. #{} 底层使用的是PreparedStatment; ${}底层使用的是Statment
+		3. #{} 能避免sql注入漏洞; ${ }不可以避免sql注入漏洞。
+		4. ${} 专门用于添表名、列名、库名。 #{} 用于添表里的值。
+	 -->
+	<select id="find" parameterType="java.util.Map" resultType="User">
+		select * from user
+		order by #{col}
+	</select>
+	
+	<select id="find2" parameterType="java.lang.String" resultType="User">
+		select * from user 
+		where name = #{name}
+	</select>
+</mapper>

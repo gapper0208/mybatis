@@ -1,0 +1,17 @@
+
+CREATE TABLE husband
+( 
+  hid INT PRIMARY KEY AUTO_INCREMENT,
+  hname VARCHAR(20)
+);
+
+CREATE TABLE wife
+( 
+  wid INT PRIMARY KEY AUTO_INCREMENT,
+  wname VARCHAR(20),
+  hid INT
+);
+
+ALTER TABLE wife
+ADD CONSTRAINT FK FOREIGN KEY(hid)
+REFERENCES husband(hid);

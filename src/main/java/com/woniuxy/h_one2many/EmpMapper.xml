@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.woniuxy.h_one2many.EmpMapper">
+	<select id="findOne" parameterType="int" resultMap="rm">
+		SELECT * FROM dept d JOIN emp e
+		ON d.`did` = e.`did`
+		WHERE e.`eid` = #{eid}
+	</select>
+	<resultMap type="Emp" id="rm">
+		<id property="eid" column="eid" />
+		<result property="ename" column="ename"/>
+		<result property="hiredate" column="hiredate"/>
+		<result property="sal" column="sal"/>
+		<association property="dept" javaType="Dept">
+			<id property="did" column="did" />
+			<result property="dname" column="dname"/>
+		</association>
+	</resultMap>
+</mapper>
