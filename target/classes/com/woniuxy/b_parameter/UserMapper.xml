@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.woniuxy.b_parameter.UserMapper">
+	<!-- 
+		1. insert标记的parameterType属性是可以省略的，就算省略了，#{ }中的内容，也必须与实际参数的属性名一致。
+		2.    在省略了parameterType属性的前提下，我们能不能传递另外一个不是User类型的参数，但是该参数仍然有#{ }里对应的属性？？ 能！！
+		3.    在不省略parameterType属性的前提下，我们能不能传递另外一个不是User类型的参数，但是该参数仍然有#{ }里对应的属性？？ 能！！
+		4.    或者是一个Map类型，有对应键值就行
+		
+		建议大家写出parameterType，以提高可读性。
+	 -->
+	<insert id="save" >
+		insert into user values(null,#{name}, #{birthday}, #{money})
+	</insert>
+</mapper>
