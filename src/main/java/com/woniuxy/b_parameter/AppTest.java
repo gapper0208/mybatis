@@ -12,7 +12,7 @@ public class AppTest {
 	public void testSave() throws Exception {
 		
 		
-		SqlSession s = MybatisUtils.openSession();
+		SqlSession s = MybatisUtils.openSession(); 
 		// ======================================================================
 		
 //		User user = new User();
