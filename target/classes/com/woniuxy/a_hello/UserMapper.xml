@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <!-- 
+ 	mapper元素的namespace属性，可以胡写，建议写成包名+文件名（不带xml后缀）
+  -->
+<mapper namespace="com.woniuxy.a_hello.UserMapper">
+	<insert id="save" parameterType="com.woniuxy.a_hello.User">
+		insert into user values(null,#{name}, #{birthday}, #{money})
+	</insert>
+	<update id="update" parameterType="com.woniuxy.a_hello.User">
+		update user set name=#{name},birthday=#{birthday},money=#{money}
+	</update>
+	<delete id="delete" parameterType="int">
+		delete from user where id = #{id}
+	</delete>
+	<!-- 
+		我们都知道，查询所有的sql语句，在java程序中应该使用集合来接收结果
+		最终，这个sql语句查询的结果，会被封装到一个List中，还是一个User对象中，不取决于resultType
+		只取决于到底运行时调用的是s.selectOne还是s.selectList.
+		
+		resultType=User的价值在于，如果调用了selectList，则返回的是集合，该集合中的元素就是User
+	 -->
+	<select id="findAll" resultType="com.woniuxy.a_hello.User">
+		select * from user
+	</select>
+	
+	<select id="findOne" parameterType="int" resultType="com.woniuxy.a_hello.User">
+		select * from user where id = #{id}
+	</select>
+</mapper>
