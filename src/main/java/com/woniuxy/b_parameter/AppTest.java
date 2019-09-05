@@ -7,7 +7,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
-public class AppTest {
+public class AppTest { 
 	@Test
 	public void testSave() throws Exception {
 		
