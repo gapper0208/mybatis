@@ -10,8 +10,6 @@ import org.junit.Test;
 public class AppTest { 
 	@Test
 	public void testSave() throws Exception {
-		
-		
 		SqlSession s = MybatisUtils.openSession(); 
 		// ======================================================================
 		
@@ -32,9 +30,6 @@ public class AppTest {
 		map.put("money", 2000d);
 		
 		s.insert("com.woniuxy.b_parameter.UserMapper.save",map);
-		
-		
-		
 		
 		// ======================================================================
 		// 提交事务
