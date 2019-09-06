@@ -1,8 +1,4 @@
-package com.woniuxy.h_one2many;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+package com.woniuxy.i_many2many;
 
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
@@ -12,20 +8,16 @@ public class AppTest {
 	public void test() throws Exception {
 		SqlSession s = MybatisUtils.openSession(); 
 		// ======================================================================
+//		TeacherMapper mapper = s.getMapper(TeacherMapper.class);
+//		Teacher t = mapper.findOne(1);
+//		System.out.println(t);
 		
-		DeptMapper mapper = s.getMapper(DeptMapper.class);
-		Dept dept = mapper.findOne(1);
-		System.out.println(dept.getDname());
-		
-//		EmpMapper mapper = s.getMapper(EmpMapper.class);
-//		Emp emp = mapper.findOne(2);
-//		
-//		System.out.println(emp);
-		
+		 StudentMapper mapper = s.getMapper(StudentMapper.class);
+		 Student stu = mapper.findOne(1);
+		 System.out.println(stu);
 		
 		// ======================================================================
 		s.close();
-		
 	}
 	
 	

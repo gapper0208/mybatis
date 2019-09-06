@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.woniuxy.i_many2many.StudentMapper">
+	<select id="findOne" parameterType="int" resultMap="rm">
+		SELECT * FROM t_s ts JOIN teacher t
+		ON ts.`tid` = t.`tid`
+		JOIN student s
+		ON ts.`sid` = s.`sid`
+		WHERE ts.`sid` = #{sid}
+	</select>
+	
+	<resultMap type="Student" id="rm">
+		<id property="sid" column="sid" />
+		<result property="sname" column="sname"/>
+		<collection property="teachers" ofType="Teacher">
+			<id property="tid" column="tid" />
+			<result property="tname" column="tname"/>
+		</collection>
+	</resultMap>
+</mapper>

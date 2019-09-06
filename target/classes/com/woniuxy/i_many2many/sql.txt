@@ -1,0 +1,25 @@
+
+CREATE TABLE teacher
+(
+  tid INT PRIMARY KEY AUTO_INCREMENT,
+  tname VARCHAR(20)
+);
+CREATE TABLE student
+(
+  sid INT PRIMARY KEY AUTO_INCREMENT,
+  sname VARCHAR(20)
+);
+CREATE TABLE t_s
+(
+  tid INT,
+  sid INT,
+  PRIMARY KEY(tid,sid)
+);
+
+ALTER TABLE t_s
+ADD CONSTRAINT FK1 FOREIGN KEY(tid)
+REFERENCES teacher(tid);
+
+ALTER TABLE t_s
+ADD CONSTRAINT FK2 FOREIGN KEY(sid)
+REFERENCES student(sid);

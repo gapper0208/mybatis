@@ -1,4 +1,4 @@
-package com.woniuxy.h_one2many;
+package com.woniuxy.l_lazyload;
 
 import java.util.HashMap;
 import java.util.List;
@@ -12,15 +12,15 @@ public class AppTest {
 	public void test() throws Exception {
 		SqlSession s = MybatisUtils.openSession(); 
 		// ======================================================================
-		
 		DeptMapper mapper = s.getMapper(DeptMapper.class);
+		
 		Dept dept = mapper.findOne(1);
+		
 		System.out.println(dept.getDname());
 		
-//		EmpMapper mapper = s.getMapper(EmpMapper.class);
-//		Emp emp = mapper.findOne(2);
-//		
-//		System.out.println(emp);
+		Thread.sleep(3000);
+		
+		System.out.println(dept.getEmps());
 		
 		
 		// ======================================================================
